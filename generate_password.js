@@ -1,4 +1,3 @@
-// 定義產生密碼的function
 // define generatePassword function
 function generatePassword() {
   // define things user might want
@@ -15,7 +14,6 @@ function generatePassword() {
     numbers: 'on',
     excludeCharacters: '40'
   }
-  console.log('options', options)
   
   // create a collection to store things user picked up
   let collection = []
@@ -36,14 +34,17 @@ function generatePassword() {
     collection = collection.concat(symbols.split(''))
   }
 
-  console.log('collection', collection)
-
   // remove things user do not need
+  if (options.excludeCharacters) {
+    collection = collection.filter(
+      character => !options.excludeCharacters.includes(character)
+    )
+  }
 
   // start generating password
 
   // return the generated password
-  console.log('This function will generate password')
+  
 }
 
 // invoke generatePassword function 
