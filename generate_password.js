@@ -1,3 +1,9 @@
+// 隨機抽出函式
+function sample(array) {
+  const index = Math.floor(Math.random() * array.length)
+  return array[index]
+}
+
 // define generatePassword function
 function generatePassword() {
   // define things user might want
@@ -8,11 +14,11 @@ function generatePassword() {
 
   // define dummy data
   const options = {
-    length: 12,
-    lowercase: 'on',
-    uppercase: 'on',
+    length: 8,
+    // lowercase: 'on',
+    // uppercase: 'on',
     numbers: 'on',
-    excludeCharacters: '40'
+    excludeCharacters: '357'
   }
   
   // create a collection to store things user picked up
@@ -42,9 +48,13 @@ function generatePassword() {
   }
 
   // start generating password
+  let password = ''
+  for (let i = 0; i < Number(options.length); i++) {
+    password += sample(collection)
+  }
 
   // return the generated password
-  
+  console.log('password', password)
 }
 
 // invoke generatePassword function 
